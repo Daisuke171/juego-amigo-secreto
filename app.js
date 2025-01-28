@@ -26,4 +26,34 @@ function listarAmigos(){
         item.textContent = amigos[i];
         lista.appendChild(item);
     }
+    return;
+}
+
+let flag = 0;
+
+function sortearAmigo(){
+    if (amigos.length === 0) {
+        alert("No hay amigos en la lista para sortear.");
+        return;
+    }
+
+    ///declaracion y aleatorizacion de index
+    let cantidadIndex = amigos.length;
+    let sorteado = Math.floor(Math.random()*cantidadIndex);
+
+    ///seleccion del elemento donde mostrar el resultado
+    let resultado = document.getElementById("resultado");
+
+    let item = document.createElement('li');
+    item.textContent = amigos[sorteado];
+
+    if (flag==0) {
+        resultado.appendChild(item);
+        flag=1;
+    } else {
+        resultado.innerHTML = "";
+        resultado.appendChild(item);
+    }
+
+    return;
 }
